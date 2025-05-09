@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+    <bean id="lap1" class = "org.example.Laptop" />
+
+    <bean id="programmer1" class = "org.example.Programmer" scope="singleton"> <!-- this will create bean(object) automatically wherther you are using or not -->
+        <property name="age" value="21" />
+        <property name="laptop" ref="lap1" />
+
+<!--        <constructor-arg name="age" value="21" />-->
+<!--        <constructor-arg name="laptop" ref="lap1"/>-->
+
+<!--        <constructor-arg index="0" value="21" />-->
+<!--        <constructor-arg index="1" ref="lap1"/>-->
+
+        <constructor-arg type="int" value="21" />
+        <constructor-arg type="org.example.Laptop" ref="lap1"/>
+    </bean>
+<!--    <bean id="programmer2" class = "org.example.Programmer" scope="prototype">  &lt;!&ndash; this will not create a object automaticall, whenever you create a object then it will create a bean &ndash;&gt;-->
+
+<!--    </bean>-->
+
+
+</beans>

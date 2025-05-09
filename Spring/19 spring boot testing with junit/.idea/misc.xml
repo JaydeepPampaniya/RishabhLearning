@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/1.00-starting-project/pom.xml" />
+        <option value="$PROJECT_DIR$/2.00-starting-project/pom.xml" />
+        <option value="$PROJECT_DIR$/2.20-starting-project/pom.xml" />
+        <option value="$PROJECT_DIR$/3.00-starting-project/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.07-project-solution-order-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.02-project-solution-lifecycle-methods/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.10-project-solution-conditional-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.03-project-solution-custom-display-name/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.06-project-solution-assert-throws-and-timeouts/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.05-project-solution-assert-array-iterable-lines/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.04-project-solution-assert-same-not-same-AND-true-false/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.01-project-solution-assert-equals-not-equals-AND-null-not-null/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.09-project-solution-unit-test-reports-and-code-coverage-reports-with-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/1.01-starting-project-solutions/section-02-junit-review/1.08-project-solution-unit-test-reports-and-code-coverage-reports-with-intellij/pom.xml" />
+        <option value="$PROJECT_DIR$/1.12-fizzbuzz-project-solutions/section-03-test-driven-development-tdd/01-fizzbuzz-project-solution-basic/pom.xml" />
+        <option value="$PROJECT_DIR$/1.12-fizzbuzz-project-solutions/section-03-test-driven-development-tdd/03-fizzbuzz-project-solution-main-app/pom.xml" />
+        <option value="$PROJECT_DIR$/1.12-fizzbuzz-project-solutions/section-03-test-driven-development-tdd/02-fizzbuzz-project-solution-parameterized-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/2.01-starting-project-solutions/section-04-spring-boot-unit-testing-support/2.01-solution-junit-assertions/pom.xml" />
+        <option value="$PROJECT_DIR$/2.21-starting-project-solutions/section-05-unit-testing-mocking-with-mockito/pom.xml" />
+        <option value="$PROJECT_DIR$/3.01-starting-project-solutions/section-07-testing-spring-boot-mvc-web-apps-database-integration-testing/3.01-01-solution-create-student-service-test/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

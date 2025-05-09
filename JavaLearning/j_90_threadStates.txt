@@ -1,0 +1,5 @@
+new --> start(); //whenever it start it goes to runnable state
+runnable --> run() or stop();// it goes running state. defference is when you are start the thread but it waiting for shaduling to run in cpu and running is actually run in cpu
+running --> sleep(),wait() or stop() //it goes to waiting state and if you are stop the thread it will go to dead state
+waiting --> notify() // it is goes to runnable state
+dead

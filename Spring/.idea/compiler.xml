@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SpringFramework3 (1)" />
+        <module name="SpringFramework3 (2)" />
+        <module name="SpringFramework3 (3)" />
+        <module name="SpringFramework3 (4)" />
+        <module name="SpringFramework3 (5)" />
+        <module name="SpringFramework3 (6)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SpringBoot1" target="21" />
+      <module name="SpringBoot1Annotation" target="21" />
+      <module name="SpringBoot1JDBCex" target="21" />
+      <module name="SpringBoot1JDBCex (1)" target="21" />
+      <module name="SpringBoot1JDBCex (2)" target="21" />
+      <module name="SpringBoot1JDBCex (3)" target="21" />
+      <module name="SpringBoot2" target="21" />
+      <module name="SpringFramework3" target="1.8" />
+      <module name="SpringFramework3 (10)" target="1.8" />
+      <module name="SpringFramework3 (11)" target="1.8" />
+      <module name="SpringFramework3 (12)" target="1.8" />
+      <module name="SpringFramework3 (13)" target="1.8" />
+      <module name="SpringFramework3 (14)" target="1.8" />
+      <module name="SpringFramework3 (15)" target="1.8" />
+      <module name="SpringFramework3 (16)" target="1.8" />
+      <module name="SpringFramework3 (7)" target="1.8" />
+      <module name="SpringFramework3 (8)" target="1.8" />
+      <module name="SpringFramework3 (9)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBoot1" options="-parameters" />
+      <module name="SpringBoot1Annotation" options="-parameters" />
+      <module name="SpringBoot1JDBCex" options="-parameters" />
+      <module name="SpringBoot1JDBCex (1)" options="-parameters" />
+      <module name="SpringBoot1JDBCex (2)" options="-parameters" />
+      <module name="SpringBoot1JDBCex (3)" options="-parameters" />
+      <module name="SpringBoot2" options="-parameters" />
+    </option>
+  </component>
+</project>

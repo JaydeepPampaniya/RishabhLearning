@@ -1,0 +1,23 @@
+Container Orchestration:
+when server get load then docker automatically increase their instance so it will helps to stop the crash a server.
+and when server get unloading that time it will decrease the instance.
+
+we can say load balancing 
+
+docker swarm useful for handling a load balancing.
+docker swarm connected to the many docker host
+
+ex.
+docker run my-web-server : my-web-server is image name with connected to my-web-server container and container connected to host
+
+docker service create --replicas=3 my-web-server: replicas is number of instance and we have a created docker swarm
+
+
+Kubernetes
+kubectl run --replicas=100 my0-web-server : this means our application have 1000 instance for handle the load.
+
+kubectl scale --replicas=2000 my-web-server: this will update scale increase instance upto 2000
+
+kubectl1 rolling-update my-web-server --image=web-server:2 // this will automatically update instance when load is occured
+
+kubectl rolling-update my-web-server --rollback //when something is happened then it will rollback our instances

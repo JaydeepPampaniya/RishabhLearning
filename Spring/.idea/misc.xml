@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/SpringBoot/SpringBoot1JDBCex/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot/SpringBoot1Annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot/SpringBoot3JDBCConnectWithH2/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot/SpringBoot4JDBCconnectWithDb/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot/SpringBoot2JDBCServiceANDRepository/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringBoot1/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringBoot2/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework3/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework9AutoWire/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework11LazyInit/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework8Interface/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework13InnerBean/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework10PrimaryBean/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework6RefAttribute/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework12GetBeanByType/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework5SetterInjection/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework7ConstructorInjection/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework/SpringFramework4ObjectCreationConfusion/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework3Autowired/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework1CreatingBean/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework6ScopAndValue/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework4ComponentStereotypeAnnotation/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework5AutowiredFieldConstructorSetter/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Framework with java based config/SpringFramework2ScopeAnnotation(prototype or singleton)/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/2.00-starting-project/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2.01-starting-project-solutions/section-04-spring-boot-unit-testing-support/2.01-solution-junit-assertions/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2.20-starting-project/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2.21-starting-project-solutions/section-05-unit-testing-mocking-with-mockito/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/3.00-starting-project/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/3.01-starting-project-solutions/section-07-testing-spring-boot-mvc-web-apps-database-integration-testing/3.01-01-solution-create-student-service-test/src/main/java" charset="UTF-8" />
+  </component>
+</project>

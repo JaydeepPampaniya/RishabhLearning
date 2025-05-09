@@ -1,0 +1,138 @@
+### **Hamcrest Library in JUnit**
+Hamcrest is a popular framework for writing **matcher-based assertions** in unit tests, commonly used with JUnit. It provides an expressive and readable way to define conditions that test expected outcomes.
+
+---
+
+## **Why Use Hamcrest in JUnit?**
+- **Readable assertions**: Provides human-friendly test conditions.
+- **Powerful matchers**: Supports complex expressions (collections, strings, numbers, etc.).
+- **Flexible composition**: Can combine multiple matchers.
+- **Extensible**: Allows you to define custom matchers.
+
+---
+
+## **Adding Hamcrest to Your Project**
+If you are using **Maven**, add this dependency:
+
+```xml
+<dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest</artifactId>
+    <version>2.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+For **Gradle**, add:
+
+```gradle
+testImplementation 'org.hamcrest:hamcrest:2.2'
+```
+
+---
+
+## **Using Hamcrest Matchers in JUnit**
+You can use Hamcrest with JUnit to create **more readable and flexible assertions**. Import `org.hamcrest.Matchers.*` and use `assertThat()`.
+
+### **Basic Example**
+```java
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+public class HamcrestExampleTest {
+    
+    @Test
+    void testString() {
+        String actual = "Hello, World!";
+        assertThat(actual, startsWith("Hello"));
+        assertThat(actual, containsString("World"));
+        assertThat(actual, endsWith("!"));
+    }
+}
+```
+
+---
+
+## **Common Hamcrest Matchers**
+Hamcrest provides many built-in matchers:
+
+### **1. Core Matchers**
+| Matcher                 | Description |
+|-------------------------|-------------|
+| `equalTo(value)`        | Checks if a value is equal to another |
+| `not(value)`            | Checks if a value is not equal |
+| `is(value)`             | Synonym for `equalTo(value)` |
+
+```java
+assertThat(5, is(equalTo(5))); 
+assertThat(5, is(5)); 
+assertThat("Java", is(not("Python")));
+```
+
+---
+
+### **2. String Matchers**
+| Matcher                 | Description |
+|-------------------------|-------------|
+| `containsString(str)`   | Checks if string contains a substring |
+| `startsWith(str)`       | Checks if string starts with a given prefix |
+| `endsWith(str)`         | Checks if string ends with a given suffix |
+
+```java
+assertThat("Hamcrest is awesome", containsString("awesome"));
+assertThat("JUnit", startsWith("J"));
+assertThat("Test", endsWith("t"));
+```
+
+---
+
+### **3. Collection Matchers**
+| Matcher                 | Description |
+|-------------------------|-------------|
+| `hasSize(n)`            | Checks if a collection has `n` elements |
+| `hasItem(value)`        | Checks if a collection contains an item |
+| `hasItems(value1, value2)` | Checks if collection contains multiple items |
+
+```java
+import java.util.List;
+import static org.hamcrest.Matchers.*;
+assertThat(List.of("apple", "banana", "cherry"), hasItem("banana"));
+assertThat(List.of(1, 2, 3, 4), hasSize(4));
+```
+
+---
+
+### **4. Number Matchers**
+| Matcher                 | Description |
+|-------------------------|-------------|
+| `greaterThan(n)`        | Checks if value is greater than `n` |
+| `lessThan(n)`           | Checks if value is less than `n` |
+| `closeTo(value, delta)` | Checks if value is close to another within `delta` |
+
+```java
+assertThat(10, greaterThan(5));
+assertThat(3.14, closeTo(3.0, 0.2)); // 3.14 is within 0.2 of 3.0
+```
+
+---
+
+### **5. Logical Matchers**
+| Matcher                 | Description |
+|-------------------------|-------------|
+| `allOf(m1, m2, ...)`    | Checks if all conditions are true |
+| `anyOf(m1, m2, ...)`    | Checks if at least one condition is true |
+
+```java
+assertThat("Hamcrest", allOf(startsWith("Ha"), containsString("crest")));
+assertThat(42, anyOf(equalTo(42), greaterThan(50)));
+```
+
+---
+
+## **Conclusion**
+- Hamcrest enhances JUnit assertions with readable and flexible matchers.
+- It works well with collections, strings, numbers, and custom objects.
+- Helps in writing more maintainable and expressive tests.
+
+Would you like a deeper dive into **custom matchers** or **advanced usage**? 🚀

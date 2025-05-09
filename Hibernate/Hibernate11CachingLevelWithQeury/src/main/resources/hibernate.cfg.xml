@@ -1,0 +1,21 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate1</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Rishabh@77</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+<!--        <property name="hibernate.hbm2ddl.auto">create</property> every time it will create a new table so use update instead of create-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+<!--        <property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <!-- Set the cache provider to Ehcache -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- Optional: Configure cache statistics (to help debug cache performance) -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+
+#counter {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: inline-block;
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+#counter h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#counter p {
+  font-size: 2em;
+  font-weight: bold;
+  color: #4a90e2;
+  margin: 10px 0;
+}
+
+#counter input {
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+#counter button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+#counter button:hover {
+  background-color: #357ab8;
+}
+
+#counter button:active {
+  background-color: #2c6191;
+}

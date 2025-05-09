@@ -1,0 +1,63 @@
+package com.security.spring.security1.config;
+
+import com.mysql.cj.protocol.AuthenticationProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecuriryConfig {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Bean
+    public AuthenticationProvider authProvider(){
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        return (AuthenticationProvider) provider;
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+//        http.csrf(customizer -> customizer.disable());
+//        http.authorizeHttpRequests(request->request.anyRequest().authenticated());
+//        http.formLogin(Customizer.withDefaults());//it will gives you login form
+//        http.httpBasic(Customizer.withDefaults());
+//        http.sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));//every time it wiil gives you new session id
+//       return http.build();
+        http
+                .csrf(customizer ->customizer.disable())
+                .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(request->request.anyRequest().authenticated());
+        return http.build();
+    }
+
+//    @Bean
+//    public UserDetailsService userDetailsService(){
+//        UserDetails user = User
+//                .withDefaultPasswordEncoder()
+//                .username("jaydeep")
+//                .password("Jaydeep@77")
+//                .roles("USER")
+//                .build();
+//
+//        UserDetails  admin=User
+//                .withDefaultPasswordEncoder()
+//                .username("admin")
+//                .password("admin@789")
+//                .roles("ADMIN")
+//                .build();
+//        return new InMemoryUserDetailsManager(user,admin);
+//    }
+}

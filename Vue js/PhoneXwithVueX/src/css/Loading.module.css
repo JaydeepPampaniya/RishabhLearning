@@ -1,0 +1,13 @@
+.spinner-main {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    background-color: #0000006c;
+    font-size: 40px; 
+    border: 0px;
+    width: 100%;
+    padding: 80vw 0;
+  }
+ 

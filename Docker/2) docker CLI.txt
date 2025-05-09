@@ -1,0 +1,97 @@
+to run particular docker file so first we have to create one image 
+we can create a image docker run --image name-- or you can select your image from docker hub website.
+
+docker run -it centos bash: run the image of bash and it means it logged you directly into the container 
+
+cat /etc/*release*: it shows where we are in which container
+
+exit - this command useful for exit from the image
+
+===========================================================================================================
+ps commands
+
+docker ps: it shows a list of all the running container
+
+docker run centos sleep 20: it will sleep after 20 sec
+socker run -d centos sleep 20: it will run on background
+
+docker ps -a: it will shows history of all container.
+
+docker stop --container name or container id-- : first we have to find container name or id usig docker ps command
+
+
+docker rm --container id or name-- :remove or kill the history or running container
+
+docker rm 773 e0o3 245 : starting id of 3 container.
+
+
+=====================================================================================
+docker image commands:
+
+docker images : all the installed images
+
+docker rmi --image name or id --: remove image (rm useful for remove a container and rmi for images) 
+
+if you have a running container of image that time you cannot delete an image first we have to delete container then delete the image.
+
+
+docker pull centos: it will pull image into your local disk
+
+
+docker exec cla19d3a7ca cat /etc/*release*
+
+
+===================================================================================
+docker run redis:4.0 : force to run on 4.0 version
+
+docker run kodekloud/webapp
+output is : Running on http://0.0.0.0:5000/
+
+docker run -p 90:5000 kodekloud/ this means you application only allows who have a 80 port number
+
+docker run -v /opt/datadir:/var/lib/mySQL MySQL
+
+1) docker run – This starts a new Docker container.
+2) -v /opt/datadir:/var/lib/mysql – This mounts a volume:
+	The directory /opt/datadir on the host machine is mapped to 	/var/lib/mysql inside the container.
+	
+	This means that MySQL’s data (databases, tables, etc.) will be 	stored on the host machine at /opt/datadir instead of inside the 	container. This ensures data persists even if the container is 	stopped or removed.
+
+3)mysql – This specifies the Docker image to be used (the official MySQL image).
+
+
+
+docker inspect --container name or id-- this will show a container additional details in json format.
+
+
+docker run --name my-container ubuntu : rename the container name
+
+docker run --rm ubuntu: The --rm flag removes the container automatically once it stops.
+
+docker run -p 8080:80 nginx :Maps port 80 inside the container to port 8080 on the host machine
+
+docker run -v /host/path:/container/path ubuntu : Mounts a directory (/host/path) from the host machine into the container at /container/path.
+
+docker run -e MYSQL_ROOT_PASSWORD=my-secret-pw MySQL : The -e flag sets an environment variable inside the container.
+In this example, it sets the MySQL root password.
+
+
+docker volume ls
+docker volume create my-volume
+docker volume rm my-volume //this three are when when you have nothing containers are running
+
+
+
+
+
+
+docker run -d --name my-mysql \
+  -e MYSQL_ROOT_PASSWORD=secret \
+  -v /opt/mysql-data:/var/lib/mysql \
+  -p 3306:3306 \
+  mysql
+
+
+=============================================================================================
+docker run jenkins/jenkins
+

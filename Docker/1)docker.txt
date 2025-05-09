@@ -1,0 +1,65 @@
+docker:
+
+Overview of Docker:
+
+Docker is a containerization platform that allows developers to package applications and their dependencies into lightweight, portable containers. These containers can run on any system that has Docker installed, eliminating the common issue of "works on my machine".
+
+🔹 Why Use Docker?
+Docker simplifies application deployment by containerizing applications, making them portable, scalable, and efficient.
+
+✅ Key Benefits of Docker:
+Portability → Runs anywhere (local machine, cloud, server, etc.).
+Consistency → Works the same across different environments.
+Efficiency → Uses less system resources than virtual machines (VMs).
+Scalability → Easily scale up/down with Docker Compose or Kubernetes.
+Isolation → Each container runs independently with its own dependencies.
+
+
+
+docker helps developer to save their time. when developer develop the some project and devOps teams want to access their project that time docker helps to setup their project in particular system with different OS. 
+
+behind the scene docker support a docker image and docker image provide many docker containers to setup their project in different container and anyone can access their project.
+
+
+
+
+ What is a Docker Image?
+A Docker image is a lightweight, standalone, and executable package that includes:
+
+The application code
+Runtime (Node.js, Python, Java, etc.)
+System tools
+Libraries and dependencies
+Environment configurations
+✅ Key Features of Docker Images
+Immutable → Once created, it does not change.
+Portable → Can run on any system with Docker installed.
+Layered Structure → Uses a layered filesystem, making it efficient.
+
+
+
+What is a Docker Container?
+A Docker container is a running instance of an image.
+It runs independently and isolated from the host system.
+
+✅ Key Features of Docker Containers
+Lightweight → Shares the host OS kernel.
+Isolated → Each container has its own processes, filesystem, and network.
+Ephemeral → Can be stopped, deleted, and recreated easily.
+Portable → Runs anywhere without modification.
+
+
+ Difference Between an Image and a Container
+
+Feature	           Docker Image	                    Docker Container
+Definition	   A blueprint for containers	    A running instance of an image
+State	           Static (does not change)	    Dynamic (can be started/stopped)
+Storage	           Stored on disk (read-only)	    Runs in memory (read-write)
+Creation	   Built from a Dockerfile	    Created from an image using docker run
+Persistence	   Permanent (until deleted)	    Temporary (exists while running)
+
+
+docker server are running in Linux OS. when docker is installed in system that time docker server are running in Linux virtual machine.
+two ways to run docker on windows first is windows container and second is Linux container. by default first time docker server are running at Linux server.
+
+windows support Hyper-V container so it will directly connect your docker server to the Linux virtual machine.

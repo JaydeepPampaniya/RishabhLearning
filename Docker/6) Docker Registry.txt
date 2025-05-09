@@ -1,0 +1,41 @@
+### Docker Registry Explained
+
+Docker Registry is a system for storing and distributing Docker images. It acts as a repository where images are pushed, stored, and pulled when needed.
+
+Key Components of a Docker Registry
+1. Docker Hub – The default public registry provided by Docker.
+2. Private Registry – A self-hosted registry for private use.
+3. Repositories – A collection of images, typically tagged with different versions.
+4. Images – The actual Docker container images stored in the registry.
+
+How It Works
+1. Pushing an Image – Developers build a Docker image and push it to a registry.
+2. Storing the Image – The registry stores the image, usually in multiple versions (tags).
+3. Pulling an Image – When needed, users or servers pull the image from the registry to run containers.
+
+🔹 Types of Docker Registries
+1. Public Registry – Anyone can access images (e.g., [Docker Hub](https://hub.docker.com)).
+2. Private Registry – Restricted access, often used for enterprise applications.
+3. Self-Hosted Registry – Organizations can host their own registry using `Docker Registry` or `Harbor`.
+
+Running a Private Docker Registry
+You can set up your own Docker registry using the `registry` image:
+
+docker run -d -p 5000:5000 --name my-registry registry:2
+
+This runs a registry on port `5000`.
+
+Commands for Working with a Docker Registry
+- Login to a registry:  
+  docker login myregistry.com
+  
+- Tag an image for the registry: 
+  docker tag my-image myregistry.com/my-image:v1
+  
+- Push an image to the registry 
+  docker push myregistry.com/my-image:v1
+ 
+- Pull an image from the registry:  
+  docker pull myregistry.com/my-image:v1
+
+

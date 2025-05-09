@@ -1,0 +1,48 @@
+if we want to write multiple lines in docker terminal that we can use this command : cat> docker-compose.yml (file name)
+
+version: '3'
+ 
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: mydb
+    depends_on:
+      - db
+ 
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - back-end
+
+  vote:
+     image: voting-app
+     networks:
+       - front-end
+       - back-end
+
+  redis:
+     image:redis
+     networks:
+       - back-end
+
+networks:
+    frontend:
+    backend:
+
+then run 
+docker - compose up
+
+we can run like this but first we have to go inside the folder using cd command 
+docker compose -f compose.yaml up -d;
+

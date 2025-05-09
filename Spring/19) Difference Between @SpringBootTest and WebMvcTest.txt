@@ -1,0 +1,87 @@
+### **Difference Between `@SpringBootTest` and `@WebMvcTest`** in Spring Boot
+
+| Feature            | `@SpringBootTest`  | `@WebMvcTest`  |
+|--------------------|-------------------|---------------|
+| **Purpose**       | Loads the **entire** Spring Boot application context | Loads **only** the web layer (controllers) |
+| **Scope**         | Full application context (all beans) | Only web-related components (controllers, `MockMvc`) |
+| **Dependencies Loaded** | Includes services, repositories, security, and other components | Only controllers, filters, and `@ControllerAdvice` |
+| **Use Case**      | Integration testing of the whole application | Unit testing of controllers with mocked dependencies |
+| **Performance**   | Slower (loads everything) | Faster (loads only web layer) |
+| **Test Type**     | Full end-to-end or integration tests | Controller-level unit tests |
+| **Database Access** | Yes (loads repositories and real DB connections) | No (only mocks services, no DB access) |
+
+---
+
+### **1️⃣ `@SpringBootTest` – Loads the Full Application Context**
+✅ Used for **integration testing**  
+✅ Loads **all beans** (controllers, services, repositories, etc.)  
+✅ Requires a real or embedded database if not mocked  
+
+**Example:**
+```java
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class MyApplicationTests {
+
+    @Test
+    void contextLoads() {
+        // Test if the entire application context loads correctly
+    }
+}
+```
+- This is useful when testing how components interact **together**.
+- However, it can be **slow** because it loads the entire application.
+
+---
+
+### **2️⃣ `@WebMvcTest` – Loads Only the Web Layer**
+✅ Used for **unit testing controllers**  
+✅ Loads only **controller-related** beans  
+✅ Uses `MockMvc` for simulating HTTP requests  
+✅ Does **not** load services, repositories, or the full Spring context  
+
+**Example:**
+```java
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@WebMvcTest(MyController.class) // Loads only MyController
+class MyControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    void shouldReturnOkResponse() throws Exception {
+        mockMvc.perform(get("/api/hello"))
+               .andExpect(status().isOk());
+    }
+}
+```
+- This is **fast** because it only loads the necessary beans for controllers.
+- Other components (like `@Service` or `@Repository`) must be **mocked**.
+
+---
+
+### **When to Use What?**
+| Scenario | Use `@SpringBootTest` | Use `@WebMvcTest` |
+|----------|---------------------|-----------------|
+| Testing controller + service + repository | ✅ Yes | ❌ No |
+| Testing only a controller | ❌ No | ✅ Yes |
+| Testing with real database | ✅ Yes | ❌ No |
+| Fast execution (no full context) | ❌ No | ✅ Yes |
+
+---
+
+### **Conclusion**
+- Use `@SpringBootTest` when **testing the full application** (integration tests).  
+- Use `@WebMvcTest` when **testing only controllers** (unit tests).  
+
+Let me know if you need further clarification! 🚀

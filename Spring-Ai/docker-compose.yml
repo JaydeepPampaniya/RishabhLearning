@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: pgvector-db
+    ports:
+      - "5434:5432"  # Expose container port 5432 on host port 5434
+    environment:
+      POSTGRES_DB: vector_store
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:

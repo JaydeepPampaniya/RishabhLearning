@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Practice</h1>
+    </header>
+    <section id="todos">
+      <h2>Add Task</h2>
+      <input type="text" @keyup.enter="addTask($event)" :value="task" />
+      <p v-show="goal.length===0">Enter your task</p>
+      <p v-for="(task,index) in goal" :key="index">
+        {{task}} <button @click="removeTask(task)">Remove</button>
+      </p>
+
+      <hr />
+
+      <h2>Choose a plan:</h2>
+      <p v-if="plan === 'free'">You have selected the Free Plan.</p>
+      <p v-else-if="plan === 'basic'">You have selected the Basic Plan.</p>
+      <p v-else-if="plan === 'premium'">You have selected the Premium Plan.</p>
+      <p v-else>Please select a plan.</p>
+      
+      <button @click="plan = 'free'">Free Plan</button>
+      <button @click="plan = 'basic'">Basic Plan</button>
+      <button @click="plan = 'premium'">Premium Plan</button>
+      <button @click="plan = ''">Reset</button>
+    </section>
+  </body>
+</html>

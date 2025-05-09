@@ -1,0 +1,154 @@
+### **📌 Mockito: What It Is and Why We Use It?**  
+
+#### **🔹 What is Mockito?**  
+**Mockito** is a popular **Java mocking framework** used for **unit testing**. It allows you to **mock objects** and their behavior instead of using real implementations.  
+
+---
+
+### **💡 Why Do We Use Mockito?**  
+✅ **Isolate Unit Tests** → Ensures that tests focus on the logic of the class being tested, not its dependencies.  
+✅ **Avoid External Dependencies** → No need to connect to databases, APIs, or third-party services.  
+✅ **Test Edge Cases Easily** → Simulate different behaviors (e.g., exceptions, null values).  
+✅ **Faster and More Efficient** → No need to initialize heavy objects or real services.  
+
+---
+
+### **🔹 Example: Without Mockito (Using Real Objects)**
+Let’s say we have a `UserService` that depends on `UserRepository` to fetch user data.
+
+```java
+public class UserService {
+    private UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public String getUserRole(String userId) {
+        User user = userRepository.findById(userId); // Calls actual DB
+        return user.getRole();
+    }
+}
+```
+
+Now, testing this class **without mocking** requires an actual `UserRepository`, which might involve a database.  
+
+---
+
+### **🔹 Example: Using Mockito to Mock Dependencies**  
+Instead of using a real `UserRepository`, we **mock** it using Mockito.
+
+```java
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class UserServiceTest {
+    @Test
+    void testGetUserRole() {
+        // Mock the UserRepository
+        UserRepository mockRepo = mock(UserRepository.class);
+
+        // Create a dummy User object
+        User mockUser = new User("123", "Admin");
+
+        // Define behavior of mockRepo when findById() is called
+        when(mockRepo.findById("123")).thenReturn(mockUser);
+
+        // Pass the mockRepo to the service
+        UserService userService = new UserService(mockRepo);
+
+        // Test the method
+        String role = userService.getUserRole("123");
+
+        // Verify expected behavior
+        assertEquals("Admin", role);
+
+        // Ensure findById() was called once
+        verify(mockRepo, times(1)).findById("123");
+    }
+}
+```
+
+---
+
+### **🔹 Key Features of Mockito**
+| Feature | Description |
+|---------|-------------|
+| `mock(Class.class)` | Creates a mock object. |
+| `when(mock.method()).thenReturn(value)` | Defines mock behavior. |
+| `verify(mock).method()` | Checks if a method was called. |
+| `doThrow().when(mock).method()` | Simulates exceptions. |
+| `times(n)` | Verifies how many times a method was called. |
+
+---
+
+### **🔹 When to Use Mockito?**
+✅ When testing **services with dependencies** (e.g., repositories, APIs, external services).  
+✅ When you **don’t want real database/API calls** in unit tests.  
+✅ When testing **edge cases** (e.g., service failures, exceptions).  
+
+In your test cases, `verify` and `ArgumentCaptor` are used to check the behavior of the mocked `TodoService`. Let's break it down:
+
+---
+
+## **1. Understanding `verify()`**
+`verify()` is used in Mockito to check if a method on a mock object was called with expected arguments and how many times it was called.
+
+### **Example from your code**
+```java
+verify(todoService).deleteTodo("Learn to Dance");
+```
+- This checks that the `deleteTodo("Learn to Dance")` method was **called exactly once** on `todoService`.
+
+```java
+verify(todoService, never()).deleteTodo("Learn Spring MVC");
+verify(todoService, never()).deleteTodo("Learn Spring");
+```
+- These ensure that `deleteTodo()` **was never called** with `"Learn Spring MVC"` and `"Learn Spring"`.
+
+```java
+verify(todoService, times(1)).deleteTodo("Learn to Dance");
+```
+- Explicitly verifies that `deleteTodo("Learn to Dance")` was **called exactly once**.
+
+---
+## **2. Understanding `ArgumentCaptor`**
+`ArgumentCaptor` is used to capture the arguments passed to a method call so they can be asserted later.
+
+### **Example from your code**
+```java
+ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+```
+- This creates an `ArgumentCaptor` to capture **String** arguments.
+
+```java
+verify(todoService).deleteTodo(argumentCaptor.capture());
+```
+- Captures the argument passed to `deleteTodo()` so we can check what was actually passed.
+
+```java
+then(todoService).should(times(2)).deleteTodo(argumentCaptor.capture());
+```
+- Ensures that `deleteTodo()` was called **exactly twice** and captures both arguments.
+
+```java
+assertEquals("Learn to Dance", argumentCaptor.getValue());
+```
+- Checks that the last captured value is `"Learn to Dance"`.
+
+#### **Possible issue in your test**
+The test says:
+```java
+then(todoService).should(times(2)).deleteTodo(argumentCaptor.capture());
+```
+- But in the logic of `deleteTodosNotRelatedToSpring()`, it seems like only `"Learn to Dance"` should be deleted **once**.
+- If this is the case, you should change `times(2)` to `times(1)`, or check all captured values instead of only the last one.
+
+---
+### **Summary**
+1. `verify()` checks if a method was called on a mock object and how many times.
+2. `ArgumentCaptor` captures arguments passed to a method and allows assertions on them.
+
+Let me know if you need further clarification! 🚀

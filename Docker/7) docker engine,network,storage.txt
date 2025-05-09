@@ -1,0 +1,96 @@
+### **Docker Engine, Networking, and Storage Explained**  
+
+---
+
+## **1️⃣ Docker Engine**  
+Docker Engine is the core component that enables containerization. It runs and manages Docker containers.
+
+### 🔹 **Components of Docker Engine**
+1. **Docker Daemon (`dockerd`)** – The background process that manages containers.
+2. **REST API** – Allows interaction with Docker via commands.
+3. **Docker CLI (`docker`)** – Command-line tool to interact with Docker Daemon.
+
+### 🔹 **How Docker Engine Works**
+- The Docker client sends commands to the Docker daemon.
+- The daemon builds, runs, and manages containers.
+- It uses container images stored in a registry.
+
+### 🔹 **Docker Engine Types**
+1. **Docker Engine - Community (CE)** – Free, open-source version.
+2. **Docker Engine - Enterprise (EE)** – Paid version with more security & support.
+
+---
+
+## **2️⃣ Docker Networking**
+Docker provides built-in networking to allow communication between containers and external systems.
+
+### 🔹 **Types of Docker Networks**
+| Network Type  | Description |
+|--------------|-------------|
+| **Bridge (default)** | Containers on the same host communicate through a virtual bridge (e.g., `docker0`). |
+| **Host** | Removes network isolation and uses the host’s network stack. |
+| **Overlay** | Used in Swarm mode to connect multiple hosts securely. |
+| **None** | Completely disables networking for the container. |
+| **Macvlan** | Assigns a MAC address to the container for direct network communication. |
+
+### 🔹 **Docker Networking Commands**
+- **List networks**  
+  ```sh
+  docker network ls
+  ```
+- **Create a custom bridge network**  
+  ```sh
+  docker network create my_network
+  ```
+- **Run a container in a specific network**  
+  ```sh
+  docker run -d --net=my_network nginx
+  ```
+- **Inspect network details**  
+  ```sh
+  docker network inspect my_network
+  ```
+
+---
+
+## **3️⃣ Docker Storage**
+Docker provides different storage options to persist data.
+
+### 🔹 **Types of Docker Storage**
+| Storage Type  | Description |
+|--------------|-------------|
+| **Volumes (Preferred)** | Stored in `/var/lib/docker/volumes/`, best for persistent data. |
+| **Bind Mounts** | Directly links a host directory to a container. |
+| **Tmpfs Mounts** | Stores data in RAM, useful for temporary data. |
+| **Storage Drivers** | Low-level system used by Docker (e.g., `overlay2`, `aufs`, `btrfs`). |
+
+### 🔹 **Docker Storage Commands**
+- **Create a volume**  
+  ```sh
+  docker volume create my_volume
+  ```
+- **Attach a volume to a container**  
+  ```sh
+  docker run -d -v my_volume:/data nginx
+  ```
+- **List volumes**  
+  ```sh
+  docker volume ls
+  ```
+- **Inspect volume details**  
+  ```sh
+  docker volume inspect my_volume
+  ```
+- **Remove a volume**  
+  ```sh
+  docker volume rm my_volume
+  ```
+
+---
+
+### **Summary**
+- **Docker Engine** runs and manages containers.
+- **Docker Networking** allows communication between containers and external systems.
+- **Docker Storage** ensures data persistence.
+
+docker network range is 170 to 172

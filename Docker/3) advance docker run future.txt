@@ -1,0 +1,28 @@
+docker run ubuntu cat /etc/*release*
+
+docker run ubuntu:17.10 cat /etc/*release*
+
+The cat command prints the contents of a file.
+/etc/*release* is a wildcard pattern that matches files like:
+/etc/os-release
+/etc/lsb-release
+/etc/system-release (if present) cat /etc/*release*
+
+docker run ubuntu sleep 1000 : in this command your terminal is stocked up to 1000 sec after 1000 sec your terminal is start so that's why we are using a -d(detached mode in background) command for run in background
+
+docker run -d ubuntu sleep 1000
+
+docker run timer : it will run a timer in every second
+
+
+docker run -d timer :it will run in background if we want to attach into foreground we can use attach keyword
+docker attach --container id/name--
+
+========================================================================================
+docker run jenkins/Jenkins
+
+docker run -p 8080:8080 Jenkins/Jenkins
+
+mkdir my-jenkins-data
+
+docker run -p 8080:8080 -v /root/my-jenkins-data:/var/jenkins_home jenkins

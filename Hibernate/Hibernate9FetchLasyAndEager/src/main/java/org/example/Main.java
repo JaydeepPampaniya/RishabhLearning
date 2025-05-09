@@ -1,0 +1,50 @@
+package org.example;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Laptop l1 = new Laptop();
+//        l1.setLid(1);
+//        l1.setLname("lenovo");
+//
+//
+        Student s = new Student();
+//        s.setRollNo(1);
+//        s.setName("Jaydeep");
+//        s.setMarks(89);
+//        s.getLaptop().add(l1);
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Laptop.class)
+                .configure()
+                .buildSessionFactory();
+
+
+        Session session = sf.openSession();
+
+        Transaction trasaction = session.beginTransaction();
+
+        trasaction.commit();
+
+        //Lazy fetch
+        Student s1 = session.get(Student.class,1);
+
+        System.out.println(s1.getName());
+        List<Laptop> l = s1.getLaptop();
+        for(Laptop list:l)
+            System.out.println(list);
+
+        session.close();
+        sf.close();
+
+    }
+}

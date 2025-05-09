@@ -1,0 +1,102 @@
+v-model = "fullName" //dataname
+v-once = only render when project is started
+
+
+v-model is combination of v-bind:value and event listeners(v-on:input, v-bind:value)
+
+<p v-html="h2Data"></p>  // h2Data:"<h2>here is the data comes with variable</h2>"
+
+
+
+
+compute and methods
+
+when dependency is change than it will render the page that time we can use compute
+when page is reload than immediately we wan to render a page that time we can use methods.
+
+
+1. Computed Properties (computed)
+Purpose: Used for declaring reactive properties that are dependent on other reactive data. They are cached and only re-evaluated when their dependencies change.
+Best for: Calculating derived state, formatting data, or performing expensive operations that should not run on every render.
+Example:
+
+js
+Copy code
+new Vue({
+  el: '#app',
+  data: {
+    firstName: 'John',
+    lastName: 'Doe'
+  },
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName;
+    }
+  }
+});
+Usage in Template:
+
+html
+Copy code
+<p>{{ fullName }}</p>
+Why Use Computed: The value of fullName is cached and only recalculated if firstName or lastName changes. This makes it more efficient than calling a method in the template.
+2. Methods (methods)
+Purpose: Functions that perform actions or logic, usually in response to events like clicks or form submissions.
+Best for: Event handling, performing actions that don’t need caching or dependency tracking.
+Example:
+
+js
+Copy code
+new Vue({
+  el: '#app',
+  data: {
+    count: 0
+  },
+  methods: {
+    increment() {
+      this.count++;
+    }
+  }
+});
+Usage in Template:
+
+html
+Copy code
+<button @click="increment">Increment</button>
+Why Use Methods: Methods are executed every time they’re called. They are not cached and will rerun on each render, unlike computed properties.
+3. Watchers (watch)
+Purpose: Watchers are used to perform side effects in response to changes in specific data properties.
+Best for: Asynchronous operations (like API calls), expensive operations, or triggering actions when data changes.
+Example:
+
+js
+Copy code
+new Vue({
+  el: '#app',
+  data: {
+    searchQuery: '',
+    results: []
+  },
+  watch: {
+    searchQuery(newVal) {
+      this.fetchResults(newVal);
+    }
+  },
+  methods: {
+    fetchResults(query) {
+      // Simulate an API call
+      setTimeout(() => {
+        this.results = ['Result 1', 'Result 2', 'Result 3'];
+      }, 500);
+    }
+  }
+});
+Why Use Watch: Unlike computed properties, watchers allow you to perform asynchronous tasks or complex logic whenever a reactive property changes. They are more flexible but generally more complex to manage.
+
+
+
+===============================================================================================================
+
+<li v-for = "(goal,index) in goals">{{goal + index}}</li>
+
+<li v-for = "(value,key,index) in {name:'jaydeep', age:'21'}">{{value + key + index}}</li>
