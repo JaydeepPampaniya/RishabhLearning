@@ -1,0 +1,1 @@
+db.stats() // this will shows all ojects size and data size and many details for particular dataBase

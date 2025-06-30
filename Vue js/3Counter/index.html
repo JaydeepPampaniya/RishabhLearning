@@ -19,27 +19,32 @@
     </header>
     <section id="counter">
       <h2>My Counter</h2>
-      <p >{{counter}}</p>
+      <p>{{counter}}</p>
       <input type="number" v-model="inputNumber" v-bind:value="inputNumber" />
       <button v-on:click="increaseCounterByOne()">AddByOne</button>
       <button v-on:click="decreaseCounterByOne()">SubByOne</button>
 
       <button v-on:click.right="addInputNumber()">AddBy {{inputNumber}}</button>
-      <button v-on:click.middle="subInputNumber()">SubBy {{inputNumber}}</button>
-      
-      <input type="text" v-on:input="setName($event)" v-bind:value="name"/>
+      <button v-on:click.middle="subInputNumber()">
+        SubBy {{inputNumber}}
+      </button>
+
+      <input type="text" v-on:input="setName($event)" v-bind:value="name" />
       <p>{{name}}</p>
 
       <form v-on:submit.prevent="submitForm" method="post">
-        <input type="email" placeholder="Enter email" v-model="email">
-        <input type="password" placeholder="Enter password" v-model="password">
+        <input type="email" placeholder="Enter email" v-model="email" />
+        <input
+          type="password"
+          placeholder="Enter password"
+          v-model="password"
+        />
         <button>Sign In</button>
       </form>
 
-<!-- v-model is combination of both v-on:input and v-bind:value -->
+      <!-- v-model is combination of both v-on:input and v-bind:value -->
       <input type="text" v-on:keyup.enter="setDescription($event)" />
       <p v-for="fruit in fruits" :key="fruit">{{fruit}}</p>
     </section>
-    
   </body>
 </html>
